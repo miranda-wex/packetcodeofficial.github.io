@@ -1,0 +1,99 @@
+
+<!doctype html>
+<html>
+<head>
+<!--[if lte IE 9]><html class="ie" lang="en"><![endif]--><!--[if gt IE 9]><!--><html lang="en"> <!--<![endif]-->
+ <head> 
+<meta charset="UTF-8"> <title>maze game</title>
+ </style> <style id="cm-font-size"> 
+<style type ="text/css"media="screen">
+body{
+background color:#ffffff;
+margin:0;
+font -family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+a{ color :#f1f1f1;text-decoration:none;}
+a:hover{text- decoration:underline;}
+
+var d=function (a) { toty.movdown( ); 
+} 
+var r=function (a) { toty.movright ( ); 
+} 
+var a=[6,6,1,1,1,2,1]; car b=[d,r,d,r,d,r,d]; 
+for (var i=0 ; i <7 ; i++) { for (var j=0 ; j <a [i]; j++) { b [i](2); 
+} 
+</style> </style> <style id="cm-font-size">
+ {
+ let ctx;
+ let canvas;
+ let maze; 
+let mazeHeight; 
+let mazeWidth;
+ let player;
+ class Player 
+{ 
+constructor ( ) { this.col=0; this.row=0; } } class MazeCell { constructor ( col, row) { this.col= col; this.row= row; this.eastWall=true; this.northWall=true; this.southWall=true; this.westWall=true; this.visited=false; } } class Maze { constructor ( cols, rows,cellSize) { this.backgroundColor="#f f f f f f"; this.cols=cols; this.endColor="#88FF88"; this.mazeColor="#000000"; this.playerColor="#880088"; this.rows=rows; this.cellSize=cellSize; this.cells =[ ] ; this.generate( )
+ } 
+generate ( )
+ { 
+mazeHeight=this.rows*this.cellSize; mazeWidth=this.cols*this.cellSize; canvas.height=mazeHeight; canvas.width=mazeWidth; canvas.style.height=mazeHeight; canvas.style.width=mazeWidth; for ( let col =0 ; col <this.cols;col++)
+{ 
+this.cells [col] =[ ] ; for ( let row =0 ; row <this.rows;row++)
+{ 
+this.cells [col][row] =new MazeCell(col, row) ;
+     }
+}
+let rndCol=Math.floor(Math.random()*this.cols);
+
+let rndRow=Math.floor(Math.random()*this.rows);
+
+let stack= [ ] ;
+stack.push(this.cells[rndCol][rndRow]);
+
+let currCell;
+let dir;
+let foundNeighbor;
+let nextCell;
+
+while( this.hasUnvisited(this.cells)){
+currCell=stack [stack.lenght-1];
+currCell.visited=true,
+
+if (this.hasUnvisitedNeighbor((currCell)){
+next Cell= null;
+foundNeighbor=false;
+do {
+dir=Math.floor(Math.random()*4);
+switch (dir){
+
+case 0;
+if (currCell.col !==(this cols-1)&&!this.cells[currCell.row].visited){
+
+currCell.eastWall=false;
+
+nextCell=this.cells[currCell.col+1][currCell.row];
+
+nextCell.westWall=false;
+
+foundNeighbor=true;
+}
+break ;
+case 1;
+
+if (currCell.row !==0 &&!this.cells[currCell.col][currCell.row-2].visited){
+
+currCell.northWall=false;
+
+nextCell=this.cells[currCell.col][currCell.row-1];
+
+nextCell.southWall=false;
+
+foundNeighbor=true;
+}
+</style>
+</head>
+<body>
+
+
+
+ 
